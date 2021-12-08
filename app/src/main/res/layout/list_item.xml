@@ -12,9 +12,9 @@
         android:clickable="true"
         android:focusable="true"
         app:fabSize="mini"
-        app:layout_contraintBottom_toBottomOf="parent"
-        app:layput_contraintStart_toStartOf="parent"
-        app:layout_contraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
          />
 
         <TextView
@@ -23,9 +23,9 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_contraintBottom_toBottomOf="parent"
-            app:layput_contraintEnd_toEndOf="parent"
-            app:layput_contraintStart_toEndOf="@+id/floatingActionButton"
-            app:layout_contraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Name of TV Show will go in here" />
 </LinearLayout>

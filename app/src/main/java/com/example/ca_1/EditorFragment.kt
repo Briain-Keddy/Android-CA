@@ -10,11 +10,10 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.ca_1.databinding.EditorFragmentBinding
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
-class EditerFragment : Fragment() {
+class EditorFragment : Fragment() {
     private val args: EditorFragmentArgs by navArgs()
     private lateinit var binding: EditorFragmentBinding
     private lateinit var viewModel: EditorViewModel
@@ -31,6 +30,7 @@ class EditerFragment : Fragment() {
             it.setHomeAsUpIndicator(R.drawable.ic_check)
         }
         setHasOptionsMenu(true)
+
         binding = EditerFragmentBinding.inflate(inflater, container, false)
         binding.title.setText("You selected Tv Show : ${args.tvShowId}")
         requireActivity().onBackPressedDispatcher.addCallback(
