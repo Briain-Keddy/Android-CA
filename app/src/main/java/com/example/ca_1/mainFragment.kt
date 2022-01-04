@@ -14,21 +14,47 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ca_1.data.TvShow
 import com.example.ca_1.databinding.FragmentMainBinding
+import com.example.ca_1.databinding.MainFragmentBinding
 
-class mainFragment : Fragment() {
+class mainFragment : Fragment(),
 
     companion object {
         fun newInstance() = mainFragment()
     }
-
-    private lateinit var viewModel: MainViewModel
+    TvShowListAdapter.ListItemListener{
+        private lateinit var viewModel: MainViewModel
+        private lateinit var binding: MainFragmentBinding
+        private lateinit var adapter: TvShowsListAdapter
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+
+        (activity as AppCompatActivity)
+            .supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        with(binding.recyclerView) {
+            setHasFixedSize(true)
+            val divider = DividerItemDecoration(
+                context, LinearLayoutManager(context).orientation
+            )
+            addItemDecoration(divider)
+        }
+
+        viewModel.TvShow.observe(viewLifecycleOwner, Observer {
+            adapter = TvShowsListAdapter(it, this@MainFragment)
+            binding.recyclerView.adapter = adapter
+            binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+        }    )
+
+        return binding.root
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -13,9 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ca_1.databinding.EditorFragmentBinding
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
 class EditorFragment : Fragment() {
+
     private val args: EditorFragmentArgs by navArgs()
     private lateinit var binding: EditorFragmentBinding
     private lateinit var viewModel: EditorViewModel
@@ -64,8 +63,4 @@ class EditorFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(EditorViewModel::class.java)
         // TODO: Use the ViewModel
     }
-}
-
-class EditorFragmentArgs {
-
 }
