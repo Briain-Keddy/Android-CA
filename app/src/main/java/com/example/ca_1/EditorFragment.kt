@@ -15,7 +15,7 @@ import com.example.ca_1.databinding.EditorFragmentBinding
 
 class EditorFragment : Fragment() {
 
-    private val args: EditorFragmentArgs by navArgs()
+  //  private val args: EditorFragmentArgs by navArgs()
     private lateinit var binding: EditorFragmentBinding
     private lateinit var viewModel: EditorViewModel
 
@@ -32,17 +32,18 @@ class EditorFragment : Fragment() {
         }
         setHasOptionsMenu(true)
 
-        binding = EditerFragmentBinding.inflate(inflater, container, false)
-        binding.title.setText("You selected Tv Show : ${args.tvShowId}")
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true){
-                override fun handleOnBackPressed() {
-                    saveAndReturn()
-                }
-            }
-        )
-        return binding.root
+//        binding = EditerFragmentBinding.inflate(inflater, container, false)
+//        binding.title.setText("You selected Tv Show : ${args.tvShowId}")
+//        requireActivity().onBackPressedDispatcher.addCallback(
+//            viewLifecycleOwner,
+//            object : OnBackPressedCallback(true){
+//                override fun handleOnBackPressed() {
+//                    saveAndReturn()
+//                }
+//            }
+//        )
+//        return binding.root
+        return null
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

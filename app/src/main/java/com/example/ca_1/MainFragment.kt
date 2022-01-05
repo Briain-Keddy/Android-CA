@@ -16,15 +16,11 @@ import com.example.ca_1.data.TvShow
 import com.example.ca_1.databinding.FragmentMainBinding
 import com.example.ca_1.databinding.MainFragmentBinding
 
-class mainFragment : Fragment(),
-
-    companion object {
-        fun newInstance() = mainFragment()
-    }
-    TvShowListAdapter.ListItemListener{
-        private lateinit var viewModel: MainViewModel
-        private lateinit var binding: MainFragmentBinding
-        private lateinit var adapter: TvShowsListAdapter
+class MainFragment : Fragment(),
+    TvShowsListAdapter.ListItemListener{
+    private lateinit var viewModel: MainViewModel
+    private lateinit var binding: MainFragmentBinding
+    private lateinit var adapter: TvShowsListAdapter
 
 
     override fun onCreateView(
@@ -51,11 +47,12 @@ class mainFragment : Fragment(),
             adapter = TvShowsListAdapter(it, this@MainFragment)
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(activity)
-        }    )
+        })
 
         return binding.root
 
     }
+}
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

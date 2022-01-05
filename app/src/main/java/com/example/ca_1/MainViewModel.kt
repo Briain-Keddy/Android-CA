@@ -2,6 +2,8 @@ package com.example.ca_1
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
 import androidx.lifecycle.viewModelScope
 import com.example.ca_1.data.TvShowEntity
 import com.example.ca_1.dataaccess.RetrofitInstance
@@ -14,7 +16,7 @@ class MainViewModel : ViewModel() {
     val tvShows: LiveData<List<TvShowEntity>>
     get() = _tvShowList
 
-    private val _isLoading = MutavlesLiveData(false)
+    private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean>
     get() = _isLoading
 
