@@ -12,8 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ca_1.data.TvShow
-import com.example.ca_1.databinding.FragmentMainBinding
+import com.example.ca_1.TvShowEntity
+
+// Your Binding class is called MainFragmentBinding not FragmentMainBinding.
 import com.example.ca_1.databinding.MainFragmentBinding
 
 class MainFragment : Fragment(),
@@ -32,7 +33,7 @@ class MainFragment : Fragment(),
             .supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
 
-        binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = MainFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         with(binding.recyclerView) {
@@ -43,7 +44,8 @@ class MainFragment : Fragment(),
             addItemDecoration(divider)
         }
 
-        viewModel.TvShow.observe(viewLifecycleOwner, Observer {
+        // ViewModel's variable is tvShows - you have TvShow
+        viewModel.tvShows.observe(viewLifecycleOwner, Observer {
             adapter = TvShowsListAdapter(it, this@MainFragment)
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -52,11 +54,8 @@ class MainFragment : Fragment(),
         return binding.root
 
     }
-}
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onItemClick(tvShow: TvShowEntity) {
+        TODO("Not yet implemented")
     }
 }

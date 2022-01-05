@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel
 import android.util.Log
 import androidx.lifecycle.*
 import androidx.lifecycle.viewModelScope
-import com.example.ca_1.data.TvShowEntity
-import com.example.ca_1.dataaccess.RetrofitInstance
+
+// Your TvShowEntity is not is .data so I've removed this.
+
+import com.example.ca_1.TvShowEntity
+import com.example.ca_1.RetrofitInstance
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    private val _tvShowList:  MutableLiveData<List<TvShowEntity>>() = MutableLiveData()
+    private val _tvShowList:  MutableLiveData<List<TvShowEntity>> = MutableLiveData()
 
     val tvShows: LiveData<List<TvShowEntity>>
     get() = _tvShowList
@@ -24,12 +27,13 @@ class MainViewModel : ViewModel() {
         getTvShow()
     }
     private fun getTvShow(){
-        viewModelScope.launch{
-            _isLoading.value = true
-            val fetchedTvShow = RetrofitInstance.api.getTvShow()
-            Log.i(TAG, "List of TV Shows : $fetchedTvShow")
-            _tvShows.value = fetchedTvShow
-            _isLoading.value = false
-        }
+//        viewModelScope.launch{
+//            _isLoading.value = true
+//            val fetchedTvShow = RetrofitInstance.api.getTvShow()
+//            Log.i("In getTvShow", "List of TV Shows : $fetchedTvShow")
+//            // this variable name is tvShowList
+//            _tvShowList.value = fetchedTvShow
+//            _isLoading.value = false
+//        }
     }
 }
