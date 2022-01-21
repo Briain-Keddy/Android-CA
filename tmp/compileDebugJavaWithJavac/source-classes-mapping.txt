@@ -1,0 +1,12 @@
+com/example/ca_1/databinding/MainFragmentBinding.java
+ com.example.ca_1.databinding.MainFragmentBinding
+com/example/ca_1/databinding/EditorFragmentBinding.java
+ com.example.ca_1.databinding.EditorFragmentBinding
+com/example/ca_1/databinding/ListItemBinding.java
+ com.example.ca_1.databinding.ListItemBinding
+com/example/ca_1/databinding/FragmentEditerBinding.java
+ com.example.ca_1.databinding.FragmentEditerBinding
+com/example/ca_1/BuildConfig.java
+ com.example.ca_1.BuildConfig
+com/example/ca_1/databinding/ActivityMainBinding.java
+ com.example.ca_1.databinding.ActivityMainBinding
